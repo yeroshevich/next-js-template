@@ -1,14 +1,13 @@
-.card{
-  border: 1px solid #f9f9f9;
-  border-radius: 4px;
-  padding: 8px;
-  &__body{
-
-  }
-  &__footer{
-    transition: all .3s;
-    &:hover{
-      transform: translateY(-6px);
-    }
-  }
+.card {
+	border: 1px solid #f9f9f9;
+	border-radius: 4px;
+	padding: 8px;
+	&__body {
+	}
+	&__footer {
+		transition: all 0.3s;
+		&:hover {
+			transform: translateY(-6px);
+		}
+	}
 }
