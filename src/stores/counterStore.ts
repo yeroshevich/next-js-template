@@ -2,8 +2,8 @@ import { create } from 'zustand';
 
 export interface ICountStore {
 	count: number;
-	inc: Function;
-	dec: Function;
+	inc: () => void;
+	dec: () => void;
 }
 
 export const counterStore = create<ICountStore>((set) => ({
