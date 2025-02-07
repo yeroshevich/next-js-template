@@ -1,4 +1,5 @@
-FROM node:20-alpine
+FROM node:21 as deps
+
 WORKDIR /app
 COPY package*.json ./
 
@@ -6,23 +7,9 @@ COPY package*.json ./
 #RUN npm set strict-ssl false
 #RUN npm config set registry="http://registry.npmjs.org/"
 
-RUN apk add --no-cache \
-    python3 \
-    make \
-    g++ \
-    zlib-dev \
-    autoconf \
-    automake \
-    libtool \
-    nasm \
-    bash
-
-
 RUN npm install -f
 COPY . .
 
-#RUN npm run build
-
 ENV PORT 443
 
-CMD ["npm", "run", "dev"]
+CMD ["/bin/bash", "entrypoint.sh"]

@@ -1,8 +1,6 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-import jsdoc from "eslint-plugin-jsdoc";
-
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { FlatCompat } from '@eslint/eslintrc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,17 +10,18 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-  {
-    files: ["**/*.tsx"],
-    plugins: {
-      jsdoc: jsdoc
-    },
+  ...compat.config({
+    extends: ['next/core-web-vitals', 'next/typescript'],
+    ignorePatterns: ['server.js'],
     rules: {
-      "jsdoc/require-description": "error",
-      "jsdoc/check-values": "error"
-    }
-  }
+      '@next/next/no-html-link-for-pages': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
+      'react-hooks/exhaustive-deps': 'off',
+      'react/display-name': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-empty-object-type': 'off',
+    },
+  }),
 ];
 
 export default eslintConfig;

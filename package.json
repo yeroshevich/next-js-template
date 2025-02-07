@@ -3,15 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node server.js NODE_ENV=dev",
+    "prod": "node serverProd.js NODE_ENV=production",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write . ",
+    "prepare": "husky install",
     "lint:write": "eslint --debug src/ --fix",
     "prettier": "prettier --write src/**/*.tsx",
     "test": "jest",
-    "test:watch": "jest --watchAll",
-    "prepare": "husky"
+    "test:watch": "jest --watchAll"
   },
   "husky": {
     "hooks": {
@@ -43,12 +45,12 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@babel/core": "^7.26.7",
     "@babel/preset-env": "^7.26.7",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
     "@builder.io/partytown": "^0.10.3",
-    "@eslint/eslintrc": "^3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
